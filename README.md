@@ -31,7 +31,7 @@ GhostShare é uma aplicação de compartilhamento de arquivos P2P segura e sem s
 1. **Clone e Instale**
 
    ```bash
-   git clone https://github.com/seu-usuario/ghostshare.git
+   git clone https://github.com/jordaoaq/GhostShare.git
    cd ghostshare
    npm run install:all
    ```
@@ -68,6 +68,3 @@ npm run dev
 
 O React Strict Mode está ativado para melhores práticas de desenvolvimento. Se você encontrar peculiaridades de conexão no modo dev, tente atualizar ambas as abas. Em builds de produção, isso não é um problema.
 
----
-
-Feito com 💙 por [Seu Nome]
