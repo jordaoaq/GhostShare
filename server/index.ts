@@ -86,7 +86,32 @@ io.on("connection", (socket: Socket) => {
 
 // Serve static files from the React client build directory
 // We use path.resolve to ensure correct path resolution from server/dist/index.js
+// Serve static files from the React client build directory
+// We use path.resolve to ensure correct path resolution from server/dist/index.js
 const clientBuildPath = path.resolve(__dirname, "../../client/dist");
+console.log("Client Build Path:", clientBuildPath);
+
+// DEBUG: Check if directory exists and list files
+import fs from "fs";
+try {
+  if (fs.existsSync(clientBuildPath)) {
+    console.log("Client build directory exists.");
+    const files = fs.readdirSync(clientBuildPath);
+    console.log("Files in client build:", files);
+  } else {
+    console.error("Client build directory DOES NOT EXIST at:", clientBuildPath);
+    // Check parent directory
+    const parent = path.resolve(__dirname, "../../client");
+    if (fs.existsSync(parent)) {
+      console.log("Client directory exists. Contents:", fs.readdirSync(parent));
+    } else {
+      console.log("Client directory DOES NOT EXIST at:", parent);
+    }
+  }
+} catch (err) {
+  console.error("Error checking directories:", err);
+}
+
 app.use(express.static(clientBuildPath));
 
 // Handle SPA routing: serve index.html for any unknown route
