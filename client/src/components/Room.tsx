@@ -276,11 +276,11 @@ const Room: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4 md:p-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="h-screen bg-gray-900 text-white p-4 md:p-8 overflow-hidden flex flex-col">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8 flex-1 min-h-0">
         {/* Left Column: File Transfer & History */}
-        <div className="lg:col-span-2 space-y-8">
-          <div className="flex justify-between items-center">
+        <div className="lg:col-span-2 flex flex-col gap-8 h-full min-h-0">
+          <div className="flex justify-between items-center shrink-0">
             <h2 className="text-xl font-bold">
               Room:{" "}
               <span className="text-blue-400 font-mono text-base">
@@ -306,7 +306,7 @@ const Room: React.FC = () => {
           {/* Drop Zone */}
           <div
             className={`
-                    border-4 border-dashed rounded-3xl h-48 flex flex-col items-center justify-center transition-all
+                    border-4 border-dashed rounded-3xl h-48 flex flex-col items-center justify-center transition-all shrink-0
                     ${
                       dragActive
                         ? "border-blue-500 bg-blue-500/10"
@@ -378,8 +378,8 @@ const Room: React.FC = () => {
           </div>
 
           {/* File History */}
-          <div className="bg-gray-800/50 rounded-2xl p-4 h-96 overflow-hidden flex flex-col">
-            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+          <div className="bg-gray-800/50 rounded-2xl p-4 flex-1 min-h-0 overflow-hidden flex flex-col">
+            <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 shrink-0">
               <Clock size={20} /> File History
             </h3>
             <div className="flex-1 overflow-y-auto space-y-3 pr-2 custom-scrollbar">
@@ -425,8 +425,8 @@ const Room: React.FC = () => {
         </div>
 
         {/* Right Column: Chat */}
-        <div className="bg-gray-800/50 rounded-2xl p-4 h-[calc(100vh-4rem)] lg:h-auto flex flex-col">
-          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+        <div className="bg-gray-800/50 rounded-2xl p-4 h-full min-h-0 flex flex-col">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 shrink-0">
             <MessageSquare size={20} /> Chat
           </h3>
 
@@ -460,7 +460,7 @@ const Room: React.FC = () => {
             )}
             <div ref={messagesEndRef} />
           </div>
-          <form onSubmit={handleSendMessage} className="flex gap-2">
+          <form onSubmit={handleSendMessage} className="flex gap-2 shrink-0">
             <input
               type="text"
               value={newMessage}
