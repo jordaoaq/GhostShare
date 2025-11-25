@@ -93,7 +93,11 @@ export const useWebRTC = (roomId: string): WebRTCState => {
       trickle: false,
       config: {
         iceServers: [
-          { urls: "stun:stun.l.google.com:19302" }, // Use Google's public STUN server
+          { urls: "stun:stun.l.google.com:19302" },
+          { urls: "stun:global.stun.twilio.com:3478" },
+          { urls: "stun:stun.cloudoe.se:3478" },
+          { urls: "stun:stun.halonet.pl:3478" },
+          { urls: "stun:stun.services.mozilla.com" },
         ],
       },
     });
@@ -120,7 +124,13 @@ export const useWebRTC = (roomId: string): WebRTCState => {
       initiator: false,
       trickle: false,
       config: {
-        iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+        iceServers: [
+          { urls: "stun:stun.l.google.com:19302" },
+          { urls: "stun:global.stun.twilio.com:3478" },
+          { urls: "stun:stun.cloudoe.se:3478" },
+          { urls: "stun:stun.halonet.pl:3478" },
+          { urls: "stun:stun.services.mozilla.com" },
+        ],
       },
     });
 
