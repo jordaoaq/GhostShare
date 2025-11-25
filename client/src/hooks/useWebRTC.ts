@@ -3,8 +3,12 @@ import SimplePeer, { Instance } from "simple-peer";
 import { io, Socket } from "socket.io-client";
 
 // Determine the socket URL based on environment
+// Determine the socket URL based on environment
 const SOCKET_SERVER_URL =
-  import.meta.env.VITE_SOCKET_URL || "http://localhost:3000";
+  import.meta.env.VITE_SOCKET_URL ||
+  (import.meta.env.PROD
+    ? "https://ghostshare-zw6q.onrender.com"
+    : "http://localhost:3000");
 
 interface WebRTCState {
   peers: Instance[];
@@ -25,7 +29,10 @@ export const useWebRTC = (roomId: string): WebRTCState => {
 
   useEffect(() => {
     // Initialize socket connection
-    const socket = io(SOCKET_SERVER_URL) as any as Socket;
+    const socket = io(SOCKET_SERVER_URL, {
+      transports: ["websocket", "polling"],
+      withCredentials: true,
+    }) as any as Socket;
     socketRef.current = socket;
 
     // Join the specific room
