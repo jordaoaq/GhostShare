@@ -74,4 +74,4 @@ npm run dev
 4. **Arraste e Solte** qualquer arquivo para começar a compartilhar!
 5. Use o chat para se comunicar com segurança.
 
-Feito com por [jordaoaq](https://github.com/jordaoaq)
+Feito por [jordaoaq](https://github.com/jordaoaq)
