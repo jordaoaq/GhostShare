@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center text-white p-4 relative z-10">
       <div className="text-center space-y-6 max-w-md w-full">
         <div className="flex justify-center mb-4">
           <div className="p-4 bg-blue-600 rounded-full bg-opacity-20">

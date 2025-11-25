@@ -276,7 +276,7 @@ const Room: React.FC = () => {
   };
 
   return (
-    <div className="h-screen bg-gray-900 text-white p-4 md:p-8 overflow-hidden flex flex-col">
+    <div className="h-screen text-white p-4 md:p-8 overflow-hidden flex flex-col relative z-10">
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8 flex-1 min-h-0">
         {/* Left Column: File Transfer & History */}
         <div className="lg:col-span-2 flex flex-col gap-8 h-full min-h-0">
