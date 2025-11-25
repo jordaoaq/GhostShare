@@ -16,10 +16,10 @@ const Home: React.FC = () => {
       <div className="text-center space-y-6 max-w-md w-full">
         <div className="flex justify-center mb-4">
           <div className="p-4 bg-blue-600 rounded-full bg-opacity-20">
-            <Share2 className="w-16 h-16 text-blue-500" />
+            <Share2 className="w-12 h-12 text-blue-500" />
           </div>
         </div>
-        <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
           GhostShare
         </h1>
         <p className="text-gray-400 text-lg">
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
 
         <button
           onClick={createRoom}
-          className="w-full py-4 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+          className="w-full py-3 px-5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-base transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
         >
           Create Room
         </button>

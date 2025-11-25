@@ -281,9 +281,11 @@ const Room: React.FC = () => {
         {/* Left Column: File Transfer & History */}
         <div className="lg:col-span-2 space-y-8">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl font-bold">
               Room:{" "}
-              <span className="text-blue-400 font-mono text-lg">{roomId}</span>
+              <span className="text-blue-400 font-mono text-base">
+                {roomId}
+              </span>
             </h2>
             <div
               className={`px-4 py-2 rounded-full flex items-center gap-2 ${
@@ -304,7 +306,7 @@ const Room: React.FC = () => {
           {/* Drop Zone */}
           <div
             className={`
-                    border-4 border-dashed rounded-3xl h-64 flex flex-col items-center justify-center transition-all
+                    border-4 border-dashed rounded-3xl h-48 flex flex-col items-center justify-center transition-all
                     ${
                       dragActive
                         ? "border-blue-500 bg-blue-500/10"
@@ -324,17 +326,17 @@ const Room: React.FC = () => {
             {transferStatus === "idle" ? (
               <>
                 <Upload
-                  className={`w-16 h-16 mb-4 ${
+                  className={`w-12 h-12 mb-4 ${
                     dragActive ? "text-blue-500" : "text-gray-500"
                   }`}
                 />
-                <p className="text-xl text-gray-400 font-medium">
+                <p className="text-lg text-gray-400 font-medium">
                   Drag & Drop file to share
                 </p>
                 <p className="text-sm text-gray-600 mt-2">or paste anywhere</p>
               </>
             ) : (
-              <div className="w-full max-w-md p-6">
+              <div className="w-full max-w-md p-4">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <FileIcon className="text-blue-400" />
@@ -376,7 +378,7 @@ const Room: React.FC = () => {
           </div>
 
           {/* File History */}
-          <div className="bg-gray-800/50 rounded-2xl p-6 h-96 overflow-hidden flex flex-col">
+          <div className="bg-gray-800/50 rounded-2xl p-4 h-96 overflow-hidden flex flex-col">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <Clock size={20} /> File History
             </h3>
@@ -423,7 +425,7 @@ const Room: React.FC = () => {
         </div>
 
         {/* Right Column: Chat */}
-        <div className="bg-gray-800/50 rounded-2xl p-6 h-[calc(100vh-4rem)] lg:h-auto flex flex-col">
+        <div className="bg-gray-800/50 rounded-2xl p-4 h-[calc(100vh-4rem)] lg:h-auto flex flex-col">
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <MessageSquare size={20} /> Chat
           </h3>

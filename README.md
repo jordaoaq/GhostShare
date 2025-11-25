@@ -1,39 +1,37 @@
 # 👻 GhostShare
 
-> **Share files like a ghost.** No servers, no traces, just you and your peer.
+> **Compartilhe arquivos como um fantasma.** Sem servidores, sem rastros, apenas você e seu par.
 
-![GhostShare Banner](https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2070&auto=format&fit=crop)
+GhostShare é uma aplicação de compartilhamento de arquivos P2P segura e sem servidor, projetada para privacidade e velocidade. Ele usa WebRTC para estabelecer uma conexão direta entre os pares, garantindo que seus arquivos **nunca** toquem em um servidor. O servidor atua apenas como um mecanismo de sinalização para apresentar os pares um ao outro.
 
-GhostShare is a secure, serverless P2P file sharing application designed for privacy and speed. It uses WebRTC to establish a direct connection between peers, ensuring that your files **never** touch a server. The server acts only as a signaling mechanism to introduce peers to each other.
+## ✨ Funcionalidades
 
-## ✨ Features
-
-- **🔒 Privacy First**: Files are transferred directly between browsers. No databases, no S3 buckets, no logs.
-- **⚡ Blazing Fast**: P2P connection means no server bottlenecks. Transfer speed is limited only by your network.
-- **📦 No Size Limits**: Powered by **StreamSaver.js**, GhostShare streams files directly to your disk, bypassing memory limits. Share 10GB+ files without crashing your browser.
-- **💬 Real-time Chat**: Secure, ephemeral chat between peers.
-- **📜 File History**: Keep track of what you've sent and received during the session.
-- **🌐 Monorepo Architecture**: Built with a modern stack, ready for easy deployment.
+- **🔒 Privacidade em Primeiro Lugar**: Arquivos são transferidos diretamente entre navegadores. Sem bancos de dados, sem buckets S3, sem logs.
+- **⚡ Extremamente Rápido**: Conexão P2P significa sem gargalos de servidor. A velocidade de transferência é limitada apenas pela sua rede.
+- **📦 Sem Limites de Tamanho**: Impulsionado pelo **StreamSaver.js**, o GhostShare transmite arquivos diretamente para o seu disco, contornando limites de memória. Compartilhe arquivos de 10GB+ sem travar seu navegador.
+- **💬 Chat em Tempo Real**: Chat seguro e efêmero entre os pares.
+- **📜 Histórico de Arquivos**: Acompanhe o que você enviou e recebeu durante a sessão.
+- **🌐 Arquitetura Monorepo**: Construído com uma stack moderna, pronto para fácil deploy.
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React + Vite + Tailwind CSS
-- **Backend**: Node.js + Express + Socket.io (Signaling)
+- **Backend**: Node.js + Express + Socket.io (Sinalização)
 - **P2P Core**: Simple-peer (WebRTC)
 - **Streaming**: StreamSaver.js
 
-## 🏃‍♂️ How to Run
+## 🏃‍♂️ Como Rodar
 
-### Prerequisites
+### Pré-requisitos
 
 - Node.js (v18+)
 
-### Quick Start
+### Início Rápido
 
-1. **Clone and Install**
+1. **Clone e Instale**
 
    ```bash
-   git clone https://github.com/yourusername/ghostshare.git
+   git clone https://github.com/seu-usuario/ghostshare.git
    cd ghostshare
    npm run install:all
    ```
@@ -44,32 +42,32 @@ GhostShare is a secure, serverless P2P file sharing application designed for pri
    npm run build
    ```
 
-3. **Start**
+3. **Iniciar**
    ```bash
    npm start
    ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-### Development Mode
+### Modo de Desenvolvimento
 
-Run frontend and backend concurrently with hot-reload:
+Rode o frontend e o backend simultaneamente com hot-reload:
 
 ```bash
 npm run dev
 ```
 
-## 📖 How to Use
+## 📖 Como Usar
 
-1. Click **"Create Room"** on the home page.
-2. Share the generated **Room URL** with a friend.
-3. Wait for the **"Peer Connected"** indicator to turn green.
-4. **Drag & Drop** any file to start sharing!
-5. Use the chat to communicate securely.
+1. Clique em **"Create Room"** na página inicial.
+2. Compartilhe a **URL da Sala** gerada com um amigo.
+3. Aguarde o indicador **"Peer Connected"** ficar verde.
+4. **Arraste e Solte** qualquer arquivo para começar a compartilhar!
+5. Use o chat para se comunicar com segurança.
 
-## ⚠️ Note on "Strict Mode"
+## ⚠️ Nota sobre "Strict Mode"
 
-React Strict Mode is enabled for development best practices. If you encounter connection quirks in dev mode, try refreshing both tabs. In production builds, this is not an issue.
+O React Strict Mode está ativado para melhores práticas de desenvolvimento. Se você encontrar peculiaridades de conexão no modo dev, tente atualizar ambas as abas. Em builds de produção, isso não é um problema.
 
 ---
 
-Made with 💙 by [Your Name]
+Feito com 💙 por [Seu Nome]

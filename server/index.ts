@@ -7,9 +7,14 @@ const app = express();
 const httpServer = createServer(app);
 
 // Initialize Socket.io with CORS enabled for development flexibility
+// Initialize Socket.io with CORS enabled
 const io = new Server(httpServer, {
   cors: {
-    origin: "*", // Allow all origins (update for production!)
+    origin: [
+      "https://ghostshare-p2p.vercel.app", // Your Vercel App
+      "http://localhost:3000", // Local Development
+      "http://localhost:5173", // Vite Dev Server
+    ],
     methods: ["GET", "POST"],
   },
 });
