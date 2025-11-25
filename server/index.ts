@@ -6,7 +6,6 @@ import path from "path";
 const app = express();
 const httpServer = createServer(app);
 
-// Initialize Socket.io with CORS enabled for development flexibility
 // Initialize Socket.io with CORS enabled
 const io = new Server(httpServer, {
   cors: {
@@ -16,7 +15,11 @@ const io = new Server(httpServer, {
       "http://localhost:5173", // Vite Dev Server
     ],
     methods: ["GET", "POST"],
+    credentials: true,
+    allowedHeaders: ["content-type"],
   },
+  transports: ["websocket", "polling"], // Explicitly allow both transport methods
+  allowEIO3: true, // Compatibility with older clients
 });
 
 const PORT = process.env.PORT || 3000;
