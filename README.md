@@ -74,31 +74,4 @@ npm run dev
 4. **Arraste e Solte** qualquer arquivo para começar a compartilhar!
 5. Use o chat para se comunicar com segurança.
 
-## 🌐 Deploy em Produção
-
-### Frontend (Vercel)
-
-1. Faça fork do repositório
-2. Conecte sua conta Vercel ao GitHub
-3. Configure o projeto:
-   - **Root Directory**: `client`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Adicione a variável de ambiente:
-   - `VITE_SOCKET_URL`: URL do seu servidor Socket.io (ex: `https://seu-app.onrender.com`)
-
-### Backend (Render)
-
-1. Crie um novo **Web Service** no Render
-2. Conecte ao repositório GitHub
-3. Configure:
-   - **Root Directory**: `.` (raiz)
-   - **Build Command**: `npm run install:all && npm run build:client && npm run build:server`
-   - **Start Command**: `npm start`
-4. O servidor estará disponível na URL fornecida pelo Render
-
-> **Nota**: Certifique-se de atualizar a lista de origens CORS no `server/index.ts` com a URL do seu frontend Vercel.
-
----
-
-Feito com 💙 por [jordaoaq](https://github.com/jordaoaq)
+Feito com por [jordaoaq](https://github.com/jordaoaq)
