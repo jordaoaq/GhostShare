@@ -13,7 +13,8 @@ import {
 import streamSaver from "streamsaver";
 import { v4 as uuidv4 } from "uuid";
 
-const CHUNK_SIZE = 16 * 1024; // 16KB chunks
+const CHUNK_SIZE = 64 * 1024; // 64KB chunks
+const STREAM_SAVER_THRESHOLD = 1024 * 1024 * 1024; // 1GB
 
 interface Message {
   id: string;
@@ -51,6 +52,7 @@ const Room: React.FC = () => {
 
   // Receiving state
   const fileWriter = useRef<WritableStreamDefaultWriter | null>(null);
+  const fileChunks = useRef<Uint8Array[]>([]);
   const receivingFile = useRef<{
     name: string;
     size: number;
@@ -124,17 +126,40 @@ const Room: React.FC = () => {
             },
           ]);
 
-          // Initialize StreamSaver to write file directly to disk
-          const fileStream = streamSaver.createWriteStream(msg.fileName, {
-            size: msg.fileSize,
-          });
-          fileWriter.current = fileStream.getWriter();
+          // Initialize StreamSaver ONLY if file is huge
+          if (msg.fileSize > STREAM_SAVER_THRESHOLD) {
+            const fileStream = streamSaver.createWriteStream(msg.fileName, {
+              size: msg.fileSize,
+            });
+            fileWriter.current = fileStream.getWriter();
+          } else {
+            // For smaller files, use memory
+            fileChunks.current = [];
+          }
         } else if (msg.type === "end") {
           // Handle File End
-          if (fileWriter.current) {
-            await fileWriter.current.close();
-            fileWriter.current = null;
+          if (
+            receivingFile.current &&
+            receivingFile.current.size > STREAM_SAVER_THRESHOLD
+          ) {
+            if (fileWriter.current) {
+              await fileWriter.current.close();
+              fileWriter.current = null;
+            }
+          } else {
+            // Download from memory
+            const blob = new Blob(fileChunks.current as BlobPart[], {
+              type: receivingFile.current?.type,
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = receivingFile.current?.name || "download";
+            a.click();
+            URL.revokeObjectURL(url);
+            fileChunks.current = [];
           }
+
           setTransferStatus("completed");
           setTransferProgress(100);
           // Reset UI after delay
@@ -147,8 +172,15 @@ const Room: React.FC = () => {
         }
       } else {
         // Handle Binary Chunk (File Data)
-        if (fileWriter.current && receivingFile.current) {
-          await fileWriter.current.write(data);
+        if (receivingFile.current) {
+          if (receivingFile.current.size > STREAM_SAVER_THRESHOLD) {
+            if (fileWriter.current) {
+              await fileWriter.current.write(data);
+            }
+          } else {
+            fileChunks.current.push(data);
+          }
+
           receivedSize.current += data.byteLength;
           const progress = Math.min(
             100,
