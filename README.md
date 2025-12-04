@@ -4,17 +4,17 @@
 
 GhostShare é uma aplicação de compartilhamento de arquivos P2P segura e sem servidor, projetada para privacidade e velocidade. Ele usa WebRTC para estabelecer uma conexão direta entre os pares, garantindo que seus arquivos **nunca** toquem em um servidor. O servidor atua apenas como um mecanismo de sinalização para apresentar os pares um ao outro.
 
-[📸 Screenshots](#-screenshots)
-
 ## 🚀 Demo ao Vivo
 
 Experimente agora: **[ghostshare-p2p.vercel.app](https://ghostshare-p2p.vercel.app)**
+
+[📸 Screenshots](#-screenshots)
 
 ## ✨ Funcionalidades
 
 - **🔒 Privacidade em Primeiro Lugar**: Arquivos são transferidos diretamente entre navegadores. Sem bancos de dados, sem buckets S3, sem logs.
 - **⚡ Extremamente Rápido**: Conexão P2P significa sem gargalos de servidor. A velocidade de transferência é limitada apenas pela sua rede.
-- **📦 Sem Limites de Tamanho**: Impulsionado pelo **StreamSaver.js**, o GhostShare transmite arquivos diretamente para o seu disco, contornando limites de memória. Compartilhe arquivos de 10GB+ sem travar seu navegador.
+- **📦 Sem Limites de Tamanho**: O GhostShare usa uma abordagem híbrida inteligente. Arquivos pequenos (<1GB) são processados na memória para velocidade máxima, enquanto arquivos gigantes usam **StreamSaver.js** para transmitir diretamente para o disco, contornando limites de memória. Compartilhe arquivos de 10GB+ sem travar seu navegador.
 - **💬 Chat em Tempo Real**: Chat seguro e efêmero entre os pares.
 - **📜 Histórico de Arquivos**: Acompanhe o que você enviou e recebeu durante a sessão.
 - **🌐 Conectividade Robusta**: Usa múltiplos servidores STUN públicos (Google, Twilio, Mozilla) para garantir conexões P2P mesmo através de firewalls restritivos.
